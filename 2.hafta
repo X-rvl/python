@@ -47,7 +47,7 @@ class Ogrenci(Insan):
     def ders_calis(self):
         print(f"Öğrenci {self.ad} ({self.ogrenci_numarasi}) şu anda ders çalışıyor.")
 
-----------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------
 
 import random
 import math
