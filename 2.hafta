@@ -1,0 +1,430 @@
+class Insan:
+    def __init__(self, ad, yas):
+        self.ad = ad
+        self.yas = yas
+        print(f"{self.ad} adında bir insan nesnesi oluşturuldu.")
+
+    def konus(self):
+        print(f"{self.ad}: 'Merhaba, nasılsınız?' diyor.")
+
+
+class Hoca(Insan):
+    def __init__(self, ad, yas, sicil_numarasi):
+        super().__init__(ad, yas)
+        self.sicil_numarasi = sicil_numarasi
+        print(f"Sicil No: {self.sicil_numarasi} olan bir hoca nesnesi oluşturuldu.")
+
+    def konus(self):
+        print(f"Hoca {self.ad}: 'Arkadaşlar, bugünkü dersimize hoş geldiniz.' diyor.")
+
+    def ders_ver(self):
+        print(f"Hoca {self.ad} ({self.sicil_numarasi}) şu anda ders veriyor.")
+
+
+class Sekreter(Insan):
+    def __init__(self, ad, yas, departman):
+        super().__init__(ad, yas)
+        self.departman = departman
+        print(f"{self.departman} departmanında bir sekreter nesnesi oluşturuldu.")
+
+    def konus(self):
+        print(f"Sekreter {self.ad}: 'Buyurun, size nasıl yardımcı olabilirim?' diyor.")
+
+    def randevu_ayarla(self):
+        print(f"Sekreter {self.ad}, yeni bir randevu ayarlıyor.")
+
+
+class Ogrenci(Insan):
+    def __init__(self, ad, yas, ogrenci_numarasi):
+        super().__init__(ad, yas)
+        self.ogrenci_numarasi = ogrenci_numarasi
+        print(f"Numarası {self.ogrenci_numarasi} olan bir öğrenci nesnesi oluşturuldu.")
+
+    def konus(self):
+        print(f"Öğrenci {self.ad}: 'Ders ne zaman başlıyor?' diye soruyor.")
+    
+    def ders_calis(self):
+        print(f"Öğrenci {self.ad} ({self.ogrenci_numarasi}) şu anda ders çalışıyor.")
+
+
+
+import random
+import math
+
+# 1. Kullanıcıdan Alınan Metni Ekranda Gösterme
+print("--- 1. Metin Gösterme ---")
+metin = input("Lütfen bir metin giriniz: ")
+print("Girdiğiniz metin:", metin)
+print("-" * 20)
+
+
+# 2. Kullanıcının Girdiği İki Sayıyı Toplama
+print("--- 2. İki Sayıyı Toplama ---")
+sayi1 = float(input("Birinci sayıyı giriniz: "))
+sayi2 = float(input("İkinci sayıyı giriniz: "))
+toplam = sayi1 + sayi2
+print(f"{sayi1} + {sayi2} = {toplam}")
+print("-" * 20)
+
+
+# 3. Girilen Sayının Tek veya Çift Sayı Olduğunu Belirleme
+print("--- 3. Tek/Çift Bulma ---")
+sayi = int(input("Bir tam sayı giriniz: "))
+if sayi % 2 == 0:
+    print(f"{sayi} bir çift sayıdır.")
+else:
+    print(f"{sayi} bir tek sayıdır.")
+print("-" * 20)
+
+
+# 4. İki Sayı ile İşlem Yapan Basit Hesap Makinesi
+print("--- 4. Basit Hesap Makinesi ---")
+s1 = float(input("İlk sayı: "))
+s2 = float(input("İkinci sayı: "))
+islem = input("İşlem seçin (+, -, *, /): ")
+if islem == '+':
+    print("Sonuç:", s1 + s2)
+elif islem == '-':
+    print("Sonuç:", s1 - s2)
+elif islem == '*':
+    print("Sonuç:", s1 * s2)
+elif islem == '/':
+    if s2 != 0:
+        print("Sonuç:", s1 / s2)
+    else:
+        print("Hata: Bir sayı sıfıra bölünemez.")
+else:
+    print("Geçersiz işlem.")
+print("-" * 20)
+
+
+# 5. Hesap Makinesinde Kullanıcı Hatalarını Önleme
+print("--- 5. Gelişmiş Hesap Makinesi (Hata Kontrollü) ---")
+try:
+    hs1 = float(input("İlk sayı: "))
+    hs2 = float(input("İkinci sayı: "))
+    islem_h = input("İşlem seçin (+, -, *, /): ")
+
+    if islem_h == '+':
+        print("Sonuç:", hs1 + hs2)
+    elif islem_h == '-':
+        print("Sonuç:", hs1 - hs2)
+    elif islem_h == '*':
+        print("Sonuç:", hs1 * hs2)
+    elif islem_h == '/':
+        print("Sonuç:", hs1 / hs2)
+    else:
+        print("Geçersiz işlem girdiniz.")
+except ValueError:
+    print("Hata: Lütfen sadece sayısal değerler giriniz.")
+except ZeroDivisionError:
+    print("Hata: Bir sayı sıfıra bölünemez.")
+print("-" * 20)
+
+
+# 6. +/- İşaretine Her Basıldığında Sayıyı Arttırma/Azaltma
+print("--- 6. Sayaç Uygulaması ---")
+sayac = 0
+print(f"Başlangıç değeri: {sayac}. Çıkmak için 'q' yazın.")
+while True:
+    komut = input("Arttırmak için '+', azaltmak için '-' girin: ")
+    if komut == '+':
+        sayac += 1
+    elif komut == '-':
+        sayac -= 1
+    elif komut.lower() == 'q':
+        break
+    else:
+        print("Geçersiz komut.")
+    print("Güncel Değer:", sayac)
+print("-" * 20)
+
+
+# 7. +10 ile -10 Arasındaki Sayıları Ekrana Yazma
+print("--- 7. +10'dan -10'a Kadar Sayılar ---")
+for i in range(10, -11, -1):
+    print(i, end=" ")
+print("\n" + "-" * 20)
+
+
+# 8. Metindeki Her Harfin Arasına Virgül Koyma
+print("--- 8. Harflerin Arasına Virgül Koyma ---")
+virgullu_metin_giris = input("Bir metin giriniz: ")
+sonuc_metin = ",".join(virgullu_metin_giris)
+print(sonuc_metin)
+print("-" * 20)
+
+
+# 9. 1 ile 100 Arasında Rastgele 10 Tam Sayı Üretip Dizi İçine Ekleme
+print("--- 9. Rastgele 10 Sayı Üretme ---")
+rastgele_sayilar = []
+for _ in range(10):
+    rastgele_sayilar.append(random.randint(1, 100))
+print("Üretilen rastgele sayılar:", rastgele_sayilar)
+print("-" * 20)
+
+
+# 10. -100 ile +100 Arasındaki 5’e Tam Bölünen Sayıları Yan Yana Gösterme
+print("--- 10. 5'e Tam Bölünen Sayılar ---")
+for sayi in range(-100, 101):
+    if sayi % 5 == 0:
+        print(sayi, end=" ")
+print("\n" + "-" * 20)
+
+
+# 11. Üç Adet Sayıyı Karşılaştırıp Sıralama
+print("--- 11. Üç Sayıyı Sıralama ---")
+sayilar_liste = []
+sayilar_liste.append(float(input("1. Sayı: ")))
+sayilar_liste.append(float(input("2. Sayı: ")))
+sayilar_liste.append(float(input("3. Sayı: ")))
+sayilar_liste.sort()
+print("Sıralanmış hali:", sayilar_liste)
+print("-" * 20)
+
+
+# 12. Faktöriyel Hesaplama ve Açılımını Yazdırma
+print("--- 12. Faktöriyel Hesaplama ---")
+n = int(input("Faktöriyeli hesaplanacak bir sayı girin: "))
+faktoriyel = 1
+aciklama = ""
+if n < 0:
+    print("Negatif sayıların faktöriyeli hesaplanamaz.")
+elif n == 0:
+    print("0! = 1")
+else:
+    for i in range(n, 0, -1):
+        faktoriyel *= i
+        aciklama += str(i)
+        if i != 1:
+            aciklama += " x "
+    print(f"{n}! = {aciklama} = {faktoriyel}")
+print("-" * 20)
+
+
+# 13. Metindeki İlk Kelime ile Son Kelimeyi Bulma
+print("--- 13. İlk ve Son Kelimeyi Bulma ---")
+cumle = input("Bir cümle giriniz: ")
+kelimeler = cumle.split()
+if len(kelimeler) > 0:
+    print("İlk kelime:", kelimeler[0])
+    print("Son kelime:", kelimeler[-1])
+else:
+    print("Cümle boş.")
+print("-" * 20)
+
+
+# 14. Girilen Sayıların Toplamını ve Ortalamasını Bulma
+print("--- 14. Toplam ve Ortalama Bulma ---")
+girilen_degerler = input("Sayıları aralarında boşluk bırakarak girin: ")
+sayi_dizisi_str = girilen_degerler.split()
+sayi_dizisi_int = [int(s) for s in sayi_dizisi_str]
+if len(sayi_dizisi_int) > 0:
+    toplam_deger = sum(sayi_dizisi_int)
+    ortalama_deger = toplam_deger / len(sayi_dizisi_int)
+    print("Toplam:", toplam_deger)
+    print("Ortalama:", ortalama_deger)
+else:
+    print("Hiç sayı girilmedi.")
+print("-" * 20)
+
+
+# 15. Büyük Harfleri Küçük Harflere, Küçük Harfleri Büyük Harflere Dönüştürme
+print("--- 15. Harf Boyutu Değiştirme ---")
+donusum_metni = input("Bir metin giriniz: ")
+print("Dönüştürülmüş metin:", donusum_metni.swapcase())
+print("-" * 20)
+
+
+# 16. Personel Maaşından Yüzdesel Zam Hesaplama
+print("--- 16. Maaş Zammı Hesaplama ---")
+mevcut_maas = float(input("Mevcut maaşı giriniz: "))
+zam_orani = float(input("Zam oranını yüzde olarak giriniz (%): "))
+zam_miktari = mevcut_maas * (zam_orani / 100)
+yeni_maas = mevcut_maas + zam_miktari
+print(f"Zam miktarı: {zam_miktari:.2f} TL")
+print(f"Yeni maaş: {yeni_maas:.2f} TL")
+print("-" * 20)
+
+
+# 17. Sayı Değerlerinin Toplamını Hesaplama (Basamak Toplamı)
+print("--- 17. Basamak Değerleri Toplamı ---")
+sayi_str = input("Bir sayı giriniz: ")
+basamak_toplami = 0
+for rakam in sayi_str:
+    basamak_toplami += int(rakam)
+print(f"{sayi_str} sayısının basamakları toplamı: {basamak_toplami}")
+print("-" * 20)
+
+
+# 18. Kullanıcının Sonsuz Sayıda Girdiği Değerlerin Yanına Tek/Çift Yazma
+print("--- 18. Sürekli Tek/Çift Sorgulama ---")
+print("Çıkmak için 'q' yazıp Enter'a basın.")
+while True:
+    giris = input("Bir tam sayı girin: ")
+    if giris.lower() == 'q':
+        break
+    try:
+        sorgu_sayi = int(giris)
+        if sorgu_sayi % 2 == 0:
+            print(f"{sorgu_sayi} -> Çift")
+        else:
+            print(f"{sorgu_sayi} -> Tek")
+    except ValueError:
+        print("Lütfen geçerli bir tam sayı girin.")
+print("-" * 20)
+
+
+# 19. 1 ile 300 Arasındaki Sayılardan 11 Sayısına Bölünenleri Bulma
+print("--- 19. 1 ile 300 Arasında 11'e Bölünenler ---")
+for sayi in range(1, 301):
+    if sayi % 11 == 0:
+        print(sayi, end=" ")
+print("\n" + "-" * 20)
+
+
+# 20. Mutlak Sistemde Sınıfı Geçmek İçin Gereken Final Notunu Hesaplama
+print("--- 20. Gerekli Final Notu Hesaplama ---")
+vize_notu = float(input("Vize notunuzu girin: "))
+vize_agirligi = float(input("Vizenin ağırlığını girin (örn: 0.40): "))
+gecme_notu = float(input("Dersin geçme notunu girin: "))
+final_agirligi = 1.0 - vize_agirligi
+gerekli_final = (gecme_notu - (vize_notu * vize_agirligi)) / final_agirligi
+if gerekli_final > 100:
+    print(f"Geçmek için almanız gereken not: {gerekli_final:.2f}. Maalesef geçmeniz mümkün değil.")
+elif gerekli_final < 0:
+    print("Tebrikler, finale girmeseniz bile geçmişsiniz!")
+else:
+    print(f"Geçmek için finalden en az {gerekli_final:.2f} almanız gerekiyor.")
+print("-" * 20)
+
+
+# 21. Üç Kenarı Girilen Üçgenin Alanını Hesaplama (Heron Formülü)
+print("--- 21. Üçgen Alanı Hesaplama ---")
+a = float(input("1. kenar: "))
+b = float(input("2. kenar: "))
+c = float(input("3. kenar: "))
+s = (a + b + c) / 2 # Yarı çevre
+if a + b > c and a + c > b and b + c > a: # Üçgen olma koşulu
+    alan = math.sqrt(s * (s - a) * (s - b) * (s - c))
+    print(f"Üçgenin alanı: {alan:.2f}")
+else:
+    print("Bu kenar uzunlukları ile bir üçgen oluşturulamaz.")
+print("-" * 20)
+
+
+# 22. Metindeki Sesli Harf Sayısını Hesaplama
+print("--- 22. Sesli Harf Sayısı Bulma ---")
+sesli_metin = input("Bir metin giriniz: ")
+sesli_harfler = "aeıioöuüAEIİOÖUÜ"
+sayac_sesli = 0
+for harf in sesli_metin:
+    if harf in sesli_harfler:
+        sayac_sesli += 1
+print(f"Metindeki sesli harf sayısı: {sayac_sesli}")
+print("-" * 20)
+
+
+# 23. Her Sayıyı Kendisi Kadar Yan Yana Yazdırma (1'den 5'e kadar örnek)
+print("--- 23. Sayıyı Kendisi Kadar Yazdırma ---")
+for i in range(1, 6):
+    for j in range(i):
+        print(i, end=" ")
+    print() # Bir alt satıra geç
+print("-" * 20)
+
+
+# 24. Tekrarsız Rastgele Sayı Üretme
+print("--- 24. Tekrarsız Rastgele Sayı Üretme ---")
+# 1 ile 50 arasında 6 adet tekrarsız sayı üretelim
+tekrarsiz_liste = random.sample(range(1, 51), 6)
+print("1-50 arası 6 tekrarsız rastgele sayı:", tekrarsiz_liste)
+print("-" * 20)
+
+
+# 25. Asal Çarpanlarını Bulma
+print("--- 25. Asal Çarpanları Bulma ---")
+asal_sayi = int(input("Asal çarpanları bulunacak sayıyı girin: "))
+bolen = 2
+carpanlar = []
+temp_sayi = asal_sayi
+while bolen * bolen <= temp_sayi:
+    if temp_sayi % bolen:
+        bolen += 1
+    else:
+        temp_sayi //= bolen
+        carpanlar.append(bolen)
+if temp_sayi > 1:
+    carpanlar.append(temp_sayi)
+print(f"{asal_sayi} sayısının asal çarpanları:", carpanlar)
+print("-" * 20)
+
+
+# 26. Metindeki En Uzun Kelimeyi Bulma
+print("--- 26. En Uzun Kelimeyi Bulma ---")
+uzunluk_cumle = input("Bir cümle giriniz: ")
+kelimeler_uzunluk = uzunluk_cumle.split()
+if kelimeler_uzunluk:
+    en_uzun_kelime = max(kelimeler_uzunluk, key=len)
+    print("En uzun kelime:", en_uzun_kelime)
+else:
+    print("Cümle boş.")
+print("-" * 20)
+
+
+# 27. Girilen Bir Notun Harf Karşılığını Bulma
+print("--- 27. Notun Harf Karşılığı ---")
+not_degeri = int(input("0-100 arası notunuzu girin: "))
+if 90 <= not_degeri <= 100: harf_notu = "AA"
+elif 85 <= not_degeri < 90: harf_notu = "BA"
+elif 80 <= not_degeri < 85: harf_notu = "BB"
+elif 75 <= not_degeri < 80: harf_notu = "CB"
+elif 65 <= not_degeri < 75: harf_notu = "CC"
+elif 58 <= not_degeri < 65: harf_notu = "DC"
+elif 50 <= not_degeri < 58: harf_notu = "DD"
+else: harf_notu = "FF (Kaldı)"
+print("Harf notunuz:", harf_notu)
+print("-" * 20)
+
+
+# 28. Cümledeki Her Kelimeyi Tersten Yazdırma
+print("--- 28. Kelimeleri Tersten Yazdırma ---")
+ters_cumle = input("Bir cümle girin: ")
+kelimeler_ters = ters_cumle.split()
+ters_kelimeler_listesi = [kelime[::-1] for kelime in kelimeler_ters]
+sonuc_cumle = " ".join(ters_kelimeler_listesi)
+print("Sonuç:", sonuc_cumle)
+print("-" * 20)
+
+
+# 29. Metni Mors Alfabesine Çevirme
+print("--- 29. Mors Alfabesine Çevirme ---")
+MORS_KODLARI = {'A':'.-', 'B':'-...', 'C':'-.-.', 'D':'-..', 'E':'.',
+                'F':'..-.', 'G':'--.', 'H':'....', 'I':'..', 'J':'.---',
+                'K':'-.-', 'L':'.-..', 'M':'--', 'N':'-.', 'O':'---',
+                'P':'.--.', 'Q':'--.-', 'R':'.-.', 'S':'...', 'T':'-',
+                'U':'..-', 'V':'...-', 'W':'.--', 'X':'-..-', 'Y':'-.--',
+                'Z':'--..', '1':'.----', '2':'..---', '3':'...--', '4':'....-',
+                '5':'.....', '6':'-....', '7':'--...', '8':'---..', '9':'----.',
+                '0':'-----', ' ':'/'}
+
+mors_metin = input("Mors alfabesine çevrilecek metni girin: ").upper()
+mors_sonuc = ""
+for karakter in mors_metin:
+    if karakter in MORS_KODLARI:
+        mors_sonuc += MORS_KODLARI[karakter] + " "
+print("Mors Kodu:", mors_sonuc)
+print("-" * 20)
+
+
+# 30. Kümülatif Toplam Hesaplama
+print("--- 30. Kümülatif Toplam ---")
+kumulatif_giris = input("Sayıları aralarında boşluk bırakarak girin: ")
+kumulatif_sayilar = [int(s) for s in kumulatif_giris.split()]
+kumulatif_toplam = 0
+kumulatif_liste = []
+for sayi in kumulatif_sayilar:
+    kumulatif_toplam += sayi
+    kumulatif_liste.append(kumulatif_toplam)
+print("Kümülatif toplam listesi:", kumulatif_liste)
+print("-" * 20)
