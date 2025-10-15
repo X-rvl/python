@@ -8,6 +8,7 @@ class Insan:
         print(f"{self.ad}: 'Merhaba, nasılsınız?' diyor.")
 
 
+
 class Hoca(Insan):
     def __init__(self, ad, yas, sicil_numarasi):
         super().__init__(ad, yas)
@@ -46,7 +47,7 @@ class Ogrenci(Insan):
     def ders_calis(self):
         print(f"Öğrenci {self.ad} ({self.ogrenci_numarasi}) şu anda ders çalışıyor.")
 
-
+----------------------------------------------------------------------------------------------
 
 import random
 import math
